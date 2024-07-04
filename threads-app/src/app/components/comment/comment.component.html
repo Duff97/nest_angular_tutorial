@@ -8,15 +8,14 @@
   <div class="sm:flex sm:justify-between sm:gap-4">
     <div>
       <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
-        Building a SaaS product as a software developer
+        {{comment.user.name}}
       </h3>
     </div>
   </div>
 
   <div class="mt-4">
     <p class="text-pretty text-sm text-gray-500">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. At velit illum provident a, ipsa
-      maiores deleniti consectetur nobis et eaque.
+      {{comment.text}}
     </p>
   </div>
 
@@ -28,24 +27,23 @@
       Reply
     </button>
     <button>
-      12 Likes
+      {{comment.likes}} Likes
     </button>
     <button
       class="duration-300"
       (click)="toggleExpanded()" 
-      [class.rotate-180]="isExpanded"
+      [class.rotate-180]="isExpanded()"
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
       </svg> 
     </button>
   </dl>
-  <section class="my-4" *ngIf="isReplying">
+  <section class="my-4" *ngIf="isReplying()">
     <app-comment-form />
   </section>
-  <section class="nested-comments" *ngIf="isExpanded">
-    <app-comment />
-    <app-comment />
+  <section class="nested-comments" *ngIf="isExpanded()">
+    <app-comment [comment]="nestedComment" *ngFor="let nestedComment of nestedComments()" />
   </section>
 </article>
 

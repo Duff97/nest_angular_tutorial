@@ -14,3 +14,13 @@ content-type: application/json
     "userId": "668182c72d218f8516e5597d",
     "parentId": "668180d6c7d252ec4cb061cf"
 }
+
+###
+
+POST http://localhost:3000/comments HTTP/1.1
+content-type: application/json
+
+{
+    "text": "Third comment",
+    "userId": "668182c72d218f8516e5597d"
+}

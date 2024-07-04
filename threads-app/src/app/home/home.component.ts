@@ -1,11 +1,13 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommentComponent } from '../components/comment/comment.component';
 import { CommentService } from '../services/comment.service';
+import { CommonModule } from '@angular/common';
+import { Comment } from '../interfaces/comment.interface';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommentComponent],
+  imports: [CommentComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
